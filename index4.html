@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator - TSR CORPS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('file:///Users/tusharanand/Downloads/BACGROUND.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Image Generator - TVS CORPS</h1>
+        <select id="imageSelect">
+            <option value="" disabled selected>Select an image</option>
+            <option value="cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="elephant">Elephant</option>
+            <option value="human">Human</option>
+        </select>
+        <button onclick="generateImage()">Generate Image</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function generateImage() {
+            const imageSelect = document.getElementById('imageSelect');
+            const selectedValue = imageSelect.value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!selectedValue) {
+                alert('Please select an image.');
+                return;
+            }
+
+            // Mock image URLs (Replace these with actual URLs or AI-generated image URLs)
+            const imageUrls = {
+                cat: 'file:///Users/tusharanand/Downloads/istockphoto-1443562748-612x612.jpg',
+                dog: 'file:///Users/tusharanand/Downloads/labrador-retriever-dog-standing-in-the-grass_Alexander-Rim_Shutterstock.jpg',
+                elephant: 'file:///Users/tusharanand/Downloads/cute-elephant-cartoon-character_1308-140184.jpeg',
+                human: 'file:///Users/tusharanand/Downloads/images.jpeg'
+            };
+
+            const imageUrl = imageUrls[selectedValue];
+            
+            resultDiv.innerHTML = `
+                <h2>Generated Image</h2>
+                <img src="${imageUrl}" alt="${selectedValue}"/>
+                <p>Selected: ${selectedValue.charAt(0).toUpperCase() + selectedValue.slice(1)}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
